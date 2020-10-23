@@ -22,12 +22,20 @@ public class MainWindow extends JFrame {
     HashMap<String, HashMap<ArrayList<String>,Double>> reader;
     DisplayTable displayTable;
 
+    JButton edit;
+    JButton display;
+
+    JLabel info;
+    ImageIcon editImg;
+    ImageIcon displayImg;
+
     public MainWindow() {
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
-        JButton edit = new JButton("Edit offerings");
-        JButton display = new JButton("Display offerings");
+
+        edit = new JButton("Edit offerings");
+        display = new JButton("Display offerings");
         manage = new JButton("Manage purchases");
 
 
@@ -44,13 +52,15 @@ public class MainWindow extends JFrame {
         int xpos = (int)middle/10;
 
 
-        JLabel info = new JLabel();
-        ImageIcon editImg = new ImageIcon("edit.png");
-        ImageIcon displayImg = new ImageIcon("display.png");
+        info = new JLabel();
+        editImg = new ImageIcon("edit.png");
+        displayImg = new ImageIcon("display.png");
 
 
         info.setSize(1000,1000);
+
         add(info);
+
         info.setLocation((int) middle-300, -150);
         info.setVisible(false);
 
@@ -105,6 +115,7 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    //Update the web-server with the Menu over HTTP
                     reader = readerClass.read();
 
 

@@ -7,11 +7,15 @@ import java.util.ArrayList;
 
 import static com.programs.java.MainWindow.codeOfUser;
 
+
+// A class that downloads all the orders that have been placed and saves them
+
 public class CSVReaderDown {
     public static ArrayList<String> name;
     public static ArrayList<String> tableID;
     public static ArrayList<String> numberOfItems;
     public static ArrayList<String> stillNedded;
+
     public static void refresh()
     {
         name = new ArrayList<String>();
@@ -52,6 +56,8 @@ public class CSVReaderDown {
 
     private static final int BUFFER_SIZE = 4096;
 
+    //Function taken from 
+    //  https://www.codejava.net/java-se/networking/use-httpurlconnection-to-download-file-from-an-http-url
     public static void downloadFile(String fileURL, File saveDir)
             throws IOException {
         URL url = new URL(fileURL);
@@ -77,11 +83,6 @@ public class CSVReaderDown {
                 fileName = fileURL.substring(fileURL.lastIndexOf("/") + 1,
                         fileURL.length());
             }
-
-            System.out.println("Content-Type = " + contentType);
-            System.out.println("Content-Disposition = " + disposition);
-            System.out.println("Content-Length = " + contentLength);
-            System.out.println("fileName = " + fileName);
 
             // opens input stream from the HTTP connection
             InputStream inputStream = httpConn.getInputStream();

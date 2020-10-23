@@ -43,6 +43,7 @@ public class JarWrite {
         }
     }
 
+    //Gets the location of My Documents folder on Windows
     public static String myDocuments()
     {
         String myDocuments = null;
